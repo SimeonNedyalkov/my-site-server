@@ -1,5 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { ProjectService } from './project.service';
+import { Project } from '../models/Project';
 @Controller('projects')
 export class ProjectController {
   constructor(private projectService: ProjectService) {}
@@ -9,7 +10,14 @@ export class ProjectController {
   }
   @Get(':id') // one project
   findOne(@Param('id') id: string) {
-    console.log(id);
     return this.projectService.findOne(id);
+  }
+  @Post() // one project
+  create(@Body() project: Project) {
+    return project;
+  }
+  @Patch(':id') // one project
+  patchOne(@Param('id') id: string, @Body() updatedProject: {}) {
+    return this.projectService.patchOne(id, { ...updatedProject });
   }
 }

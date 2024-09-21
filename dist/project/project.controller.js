@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProjectController = void 0;
 const common_1 = require("@nestjs/common");
 const project_service_1 = require("./project.service");
+const Project_1 = require("../models/Project");
 let ProjectController = class ProjectController {
     constructor(projectService) {
         this.projectService = projectService;
@@ -23,8 +24,13 @@ let ProjectController = class ProjectController {
         return this.projectService.findAll();
     }
     findOne(id) {
-        console.log(id);
         return this.projectService.findOne(id);
+    }
+    create(project) {
+        return project;
+    }
+    patchOne(id, updatedProject) {
+        return this.projectService.patchOne(id, { ...updatedProject });
     }
 };
 exports.ProjectController = ProjectController;
@@ -41,6 +47,21 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ProjectController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Project_1.Project]),
+    __metadata("design:returntype", void 0)
+], ProjectController.prototype, "create", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], ProjectController.prototype, "patchOne", null);
 exports.ProjectController = ProjectController = __decorate([
     (0, common_1.Controller)('projects'),
     __metadata("design:paramtypes", [project_service_1.ProjectService])

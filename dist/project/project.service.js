@@ -27,6 +27,9 @@ let ProjectService = class ProjectService {
     async findOne(id) {
         return this.projectModel.findById(id);
     }
+    async patchOne(id, body) {
+        return this.projectModel.findByIdAndUpdate(id, body, { new: true }).exec();
+    }
 };
 exports.ProjectService = ProjectService;
 exports.ProjectService = ProjectService = __decorate([
