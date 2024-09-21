@@ -24,6 +24,9 @@ let ProjectService = class ProjectService {
     async findAll() {
         return this.projectModel.find().exec();
     }
+    async findOne(id) {
+        return this.projectModel.findById(id).exec();
+    }
 };
 exports.ProjectService = ProjectService;
 exports.ProjectService = ProjectService = __decorate([
