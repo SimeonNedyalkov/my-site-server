@@ -1,6 +1,6 @@
+import { ProjectService } from './project.service';
 export declare class ProjectController {
-    findAll(): any[];
-    findSpecific(id: string): {
-        id: string;
-    };
+    private projectService;
+    constructor(projectService: ProjectService);
+    findAll(): {};
 }
