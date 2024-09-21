@@ -7,4 +7,9 @@ export class ProjectController {
   findAll(): {} {
     return this.projectService.findAll();
   }
+  @Get(':id') // one project
+  findOne(@Param('id') id: string) {
+    console.log(id);
+    return this.projectService.findOne(id);
+  }
 }

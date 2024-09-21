@@ -25,7 +25,7 @@ let ProjectService = class ProjectService {
         return this.projectModel.find().exec();
     }
     async findOne(id) {
-        return this.projectModel.findById(id).exec();
+        return this.projectModel.findById(id);
     }
 };
 exports.ProjectService = ProjectService;

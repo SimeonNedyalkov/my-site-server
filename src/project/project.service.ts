@@ -12,6 +12,6 @@ export class ProjectService {
     return this.projectModel.find().exec();
   }
   async findOne(id): Promise<Project> {
-    return this.projectModel.findById(id).exec();
+    return this.projectModel.findById(id);
   }
 }
