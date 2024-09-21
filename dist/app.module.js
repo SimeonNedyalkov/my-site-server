@@ -11,12 +11,13 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const project_module_1 = require("./project/project.module");
+const mongoose_1 = require("@nestjs/mongoose");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [project_module_1.ProjectModule],
+        imports: [project_module_1.ProjectModule, mongoose_1.MongooseModule.forRoot('mongodb://localhost/nest')],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

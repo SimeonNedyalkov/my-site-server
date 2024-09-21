@@ -37,6 +37,6 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProjectController.prototype, "findSpecific", null);
 exports.ProjectController = ProjectController = __decorate([
-    (0, common_1.Controller)('project')
+    (0, common_1.Controller)('projects')
 ], ProjectController);
 //# sourceMappingURL=project.controller.js.map

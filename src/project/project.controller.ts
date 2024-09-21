@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 
-@Controller('project')
+@Controller('projects')
 export class ProjectController {
   @Get() // all projects
   findAll() {
