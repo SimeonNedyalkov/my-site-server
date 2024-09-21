@@ -1,0 +1,76 @@
+[
+  {
+    "id": "1",
+    "name": "Cat Date",
+    "demo": "Yes",
+    "image": "../assets/projects/Screenshot-2024-09-01-155000.png",
+    "languagesAndTechnologies": [
+      "Angular",
+      "JavaScript",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "MongoDb"
+    ],
+    "description": "Cat-Date is a fun and interactive Angular-based application, inspired by Tinder, designed exclusively for connecting cats and their owners. Swipe right to find the perfect playmate for your feline friend, schedule playdates, and join a community of cat enthusiasts!"
+  },
+  {
+    "id": "2",
+    "name": "Choose Your Fighter",
+    "demo": "Yes",
+    "image": "../assets/projects/Screenshot-2024-09-01-155050.png",
+    "languagesAndTechnologies": [
+      "React",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "MongoDb"
+    ],
+    "description": "'Choose Your Fighter' is a React project where users pick characters like bears, sharks, octopuses, and eagles to battle against the app's AI. It demonstrates React skills, interactive UI design, state management, and game logic implementation for an engaging gaming experience."
+  },
+  {
+    "id": "3",
+    "name": "Magma Heaven",
+    "demo": "Yes",
+    "image": "../assets/projects/Screenshot-2024-09-01-161416.png",
+    "languagesAndTechnologies": [
+      "Noje.js",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "MongoDb",
+      "Express"
+    ],
+    "description": "App made with Node.js, Express.js, mongoose, cookie-parser, jsonwebtoken, handlebars, bcypt, express-validators."
+  },
+  {
+    "id": "4",
+    "name": "Earth Treasure Vault",
+    "demo": "Yes",
+    "image": "../assets/projects/Screenshot-2024-09-05-212729.png",
+    "languagesAndTechnologies": [
+      "Noje.js",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "MongoDb",
+      "Express"
+    ],
+    "description": "App made on NodeJs with express,mongoose,cookie-parser,jsonwebtoken,handlebars,bcypt,express-validators"
+  },
+  {
+    "id": "5",
+    "name": "Movie Magic",
+    "demo": "Yes",
+    "image": "../assets/projects/Screenshot-2024-09-05-212941.png",
+    "languagesAndTechnologies": [
+      "Noje.js",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "MongoDb",
+      "Express"
+    ],
+    "description": "App made on NodeJs with express,mongoose,cookie-parser,jsonwebtoken,handlebars,bcypt,express-validators"
+  }
+]
