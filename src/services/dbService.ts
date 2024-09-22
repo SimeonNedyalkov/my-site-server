@@ -1,53 +1,47 @@
-import { ProjectSchema } from '../models/Project';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// async function getAllProjects() {
-//   return Project.find().lean();
-// }
+import { Project } from '../models/Project'; // Import your schema
 
-// async function getProjectById(id) {
-//   return Project.findById(id).lean();
-// }
+@Injectable()
+export class SeederService implements OnModuleInit {
+  private readonly logger = new Logger(SeederService.name);
 
-// async function create(data, authorId) {
-//   const record = new Project({
-//     name: data.name,
-//     demo: data.demo,
-//     image: data.image,
-//     languagesAndTechnologies: data.languagesAndTechnologies,
-//     description: data.description,
-//   });
-//   await record.save();
-//   return record;
-// }
+  constructor(
+    @InjectModel(Project.name) private productModel: Model<Project>,
+  ) {}
 
-// async function update(projectId, data, authorId) {
-//   const record = await Project.findById(projectId);
-//   if (!record) {
-//     throw new Error('Project not found');
-//   }
+  async onModuleInit() {
+    await this.loadSeedData();
+  }
 
-//   record.name = data.name;
-//   record.demo = data.demo;
-//   record.image = data.image;
-//   record.languagesAndTechnologies = data.languagesAndTechnologies;
-//   record.description = data.description;
-//   console.log(record);
-//   await record.save();
-//   return record;
-// }
+  private async loadSeedData() {
+    try {
+      await this.seedProjects();
+      this.logger.log('Seeding completed.');
+    } catch (err) {
+      this.logger.error('Seeding failed', err);
+    }
+  }
 
-// async function deleteById(id) {
-//   const record = await Project.findById(id);
-//   if (!record) {
-//     throw new ReferenceError(`Record not found ` + id);
-//   }
-//   await Project.findByIdAndDelete(id);
-// }
+  private async seedProjects() {
+    const productsFilePath = path.join(
+      __dirname,
+      '../../src/seeds/projects.seed.json',
+    );
+    const productsData = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-// module.exports = {
-//   getAllProjects,
-//   getProjectById,
-//   create,
-//   update,
-//   deleteById,
-// };
+    const existingProducts = await this.productModel.countDocuments();
+    if (existingProducts === 0) {
+      await this.productModel.insertMany(productsData);
+      this.logger.log(
+        `Inserted ${productsData.length} projects into the database.`,
+      );
+    } else {
+      this.logger.log('Projects already exist, skipping product seeding.');
+    }
+  }
+}
