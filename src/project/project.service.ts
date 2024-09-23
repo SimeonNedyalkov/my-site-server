@@ -14,7 +14,13 @@ export class ProjectService {
   async findOne(id): Promise<Project> {
     return this.projectModel.findById(id);
   }
+  async createOne(body: Project): Promise<Project> {
+    return this.projectModel.create(body);
+  }
   async patchOne(id: string, body: Partial<Project>): Promise<Project> {
     return this.projectModel.findByIdAndUpdate(id, body, { new: true }).exec();
+  }
+  async deleteOne(id: string): Promise<Project> {
+    return this.projectModel.findByIdAndDelete(id).exec();
   }
 }

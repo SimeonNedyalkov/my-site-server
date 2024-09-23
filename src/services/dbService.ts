@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { Project } from '../models/Project'; // Import your schema
+import { Project } from '../models/Project';
 
 @Injectable()
 export class SeederService implements OnModuleInit {
