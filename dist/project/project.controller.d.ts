@@ -5,6 +5,7 @@ export declare class ProjectController {
     constructor(projectService: ProjectService);
     findAll(): {};
     findOne(id: string): Promise<Project>;
-    create(project: Project): Project;
+    create(project: Project): Promise<Project>;
     patchOne(id: string, updatedProject: {}): Promise<Project>;
+    deleteOne(id: string): Promise<Project>;
 }

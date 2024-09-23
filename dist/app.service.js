@@ -14,10 +14,16 @@ const common_1 = require("@nestjs/common");
 let AppService = class AppService {
     constructor() { }
     getHello() {
-        return 'Hello World!';
+        return `Hello World!`;
     }
 };
 exports.AppService = AppService;
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", String)
+], AppService.prototype, "getHello", null);
 exports.AppService = AppService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [])

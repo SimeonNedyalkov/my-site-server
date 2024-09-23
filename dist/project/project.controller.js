@@ -27,10 +27,13 @@ let ProjectController = class ProjectController {
         return this.projectService.findOne(id);
     }
     create(project) {
-        return project;
+        return this.projectService.createOne(project);
     }
     patchOne(id, updatedProject) {
         return this.projectService.patchOne(id, { ...updatedProject });
+    }
+    deleteOne(id) {
+        return this.projectService.deleteOne(id);
     }
 };
 exports.ProjectController = ProjectController;
@@ -62,6 +65,13 @@ __decorate([
     __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], ProjectController.prototype, "patchOne", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ProjectController.prototype, "deleteOne", null);
 exports.ProjectController = ProjectController = __decorate([
     (0, common_1.Controller)('projects'),
     __metadata("design:paramtypes", [project_service_1.ProjectService])

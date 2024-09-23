@@ -27,8 +27,14 @@ let ProjectService = class ProjectService {
     async findOne(id) {
         return this.projectModel.findById(id);
     }
+    async createOne(body) {
+        return this.projectModel.create(body);
+    }
     async patchOne(id, body) {
         return this.projectModel.findByIdAndUpdate(id, body, { new: true }).exec();
+    }
+    async deleteOne(id) {
+        return this.projectModel.findByIdAndDelete(id).exec();
     }
 };
 exports.ProjectService = ProjectService;
